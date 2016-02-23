@@ -105,7 +105,6 @@ CGFloat space = 10;
             make.left.equalTo(iconImageView.left);
             make.width.equalTo(100);
             make.height.equalTo(100);
-            // 不能加这句，否则会破坏frame的计算
             make.bottom.equalTo(self.contentView.bottom).offset(-space);
         }];
         
