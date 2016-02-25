@@ -101,11 +101,14 @@ CGFloat space = 10;
         self.pictureImageView = pictureImageView;
         // 添加约束
         [pictureImageView makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(text_Label.bottom).offset(space);
-            make.left.equalTo(iconImageView.left);
-            make.width.equalTo(100);
-            make.height.equalTo(100);
-            make.bottom.equalTo(self.contentView.bottom).offset(-space);
+            make.top.equalTo(text_Label.bottom).offset(space).with.priority(750);
+            make.left.equalTo(iconImageView.left).with.priority(1000);
+            make.width.equalTo(100).with.priority(1000);
+            make.height.equalTo(100).with.priority(750);
+            // 让底部优先级低点
+//            make.bottom.equalTo(self.contentView.bottom).offset(-space);
+            make.bottom.equalTo(self.contentView.bottom).offset(-space).with.priority(750);
+//            make.bottom.equalTo(self.contentView.bottom).offset(-space).width.priorityMedium(); // 指定优先级为中等
         }];
         
     }
